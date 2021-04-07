@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { Pelicula } from 'src/models/pelicula-response.interface';
+import { PeliculaService } from './service/swapi.service';
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'peliculas';
+  public listadoPelicula: Pelicula[] 
+
+  constructor(private peliculaservice :PeliculaService) { }
+
+  ngOnInit() {
+    this.loadPelicula();
+  }
+  loadPelicula() {
+    this.peliculaservice.getPelicula().subscribe(resp => {
+    this.listadoPelicula = resp.results;
+    });
+  }
 }
