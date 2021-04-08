@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Pelicula } from 'src/models/pelicula-response.interface';
 import { PeliculaService } from './service/swapi.service';
+import { MatDialog } from '@angular/material';
 
 
 
@@ -23,4 +24,7 @@ export class AppComponent {
     this.listadoPelicula = resp.results;
     });
   }
+
+  displayedColumns: string[] = ['title', 'director','producer','release_date'];
+  
 }

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PeliculaService } from './service/swapi.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule, MatTableModule } from '@angular/material';
 
 
 
@@ -17,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [PeliculaService],
   bootstrap: [AppComponent]
